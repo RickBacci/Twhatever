@@ -5,7 +5,10 @@ feature "User" do
 
     visit root_path
 
-    click_on "Login with Twitter"
+    click_on "Login"
+
+    fill_in "Phone, email, or username", with: ENV['test_email']
+    fill_in "Password", with: ENV['test_password']
 
     expect(page).to have_content('rickbacci_175')
     expect(page).to have_content('rickbacci@gmail.com')
