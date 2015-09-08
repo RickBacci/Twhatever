@@ -19,7 +19,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'figaro'
-gem 'thin'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
@@ -37,3 +37,4 @@ group :development do
   gem 'binding_of_caller'
 end
 
+gem 'rails_12factor', group: :production
