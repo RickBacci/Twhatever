@@ -21,7 +21,7 @@
             %li
               %a{:href => "#"} Profile
             %li
-              %a{:href => "#"} Logout
-
+              -if current_user
+                =link_to "Logout", logout_path
         %li
-          %a{:href => "#"} Login
+          =link_to 'Login', login_path
