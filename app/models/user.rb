@@ -1,15 +1,16 @@
 class User < ActiveRecord::Base
 
-  def self.find_or_create_from_auth(data)
-    user = User.find_or_create_by(provider: data.provider, uid: data.uid)
+  def self.find_or_create_from_oauth(oauth)
+    user = User.find_or_create_by(provider: oauth['provider'], uid: oauth['uid'])
 
-    # user.email = data.info.email
-    user.nickname = data.info.nickname
-    user.name = data.info.name
-    user.location = data.info.location
-    user.image = data.info.image
-    user.description = data.info.description
-    user.token = data.credentials.token
+    user.provider    = oauth['provider']
+    user.uid         = oauth['uid']
+    user.nickname    = oauth['info']['nickname']
+    user.name        = oauth['info']['name']
+    user.location    = oauth['info']['location']
+    user.image       = oauth['info']['image']
+    user.description = oauth['info']['description']
+    user.token       = oauth['credentials']['token']
     user.save
 
     user
