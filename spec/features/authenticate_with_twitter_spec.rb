@@ -16,7 +16,10 @@ feature "User" do
 
     visit root_path
 
+    expect(page).to_not have_link('Logout')
+
     click_on "Login"
-    expect(page).to have_content('JOE SMOE')
+
+    expect(page).to have_link('Logout')
   end
 end
