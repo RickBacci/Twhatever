@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
 
   def self.find_or_create_from_oauth(oauth)
-    user = User.find_or_create_by(provider: oauth['provider'], uid: oauth['uid'])
+    user = User.find_or_create_by(provider: oauth['provider'],
+                                  uid: oauth['uid'])
 
     user.provider    = oauth['provider']
     user.uid         = oauth['uid']
