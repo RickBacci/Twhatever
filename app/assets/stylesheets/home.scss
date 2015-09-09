@@ -1,3 +1,17 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.profile-summary, .main-feed {
+  border: 2px solid blue;
+}
+
+.tweet-btn {
+  background-color: #00aced;
+  color: white;
+}
+
+.blue-border {
+  border: 2px solid blue;
+}
