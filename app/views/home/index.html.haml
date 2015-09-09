@@ -2,8 +2,31 @@
   .col-md-3.profile-summary
     .panel.panel-default
       .panel-body
-        %p Profile Summary
-
+        .row
+          .col-md-2
+            =image_tag 'http://lorempixel.com/25/25/cats/'
+          .col-md-10
+            %p.small Rick B<br>@rickbacci_175
+        .row
+          .col-md-4
+            %span.small
+              tweets
+          .col-md-4
+            %span.small
+              following
+          .col-md-4
+            %span.small
+              followers
+        .row
+          .col-md-4
+            %span.small
+              10
+          .col-md-4
+            %span.small
+              6
+          .col-md-4
+            %span.small
+              5
   .col-md-6.main-feed
     = render 'shared/tweet_form'
     = render 'shared/tweet'
