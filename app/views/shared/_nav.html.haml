@@ -14,11 +14,11 @@
             Toggle Navigation
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            = image_tag 'http://lorempixel.com/25/25/cats/'
-          %ul.dropdown-menu
-            %li
-              -if current_user
-                =link_to "Profile", user_path(current_user)
+          - if current_user
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              = image_tag current_user.image, class: 'image-responsive nav-pic'
+            %ul.dropdown-menu
+              %li
+                = link_to "Profile", user_path(current_user)
         %li
           = render "shared/check_user"

@@ -1,43 +1,51 @@
-.row.user-profile
-  .col-md-12.profile
-    .panel.panel-default
-      .panel-body
-        .row
-          .col-md-2
-            =image_tag 'http://lorempixel.com/125/125/cats/'
-          .col-md-10
-            .row
-              .col-md-4
-                %span.small
-                  tweets
-              .col-md-4
-                %span.small
-                  following
-              .col-md-4
-                %span.small
-                  followers
-            .row
-              .col-md-4
-                %span.small
-                  10
-              .col-md-4
-                %span.small
-                  6
-              .col-md-4
-                %span.small
-                  5
-.row
-  .col-md-3.blue-border
-    %p.small Rick B<br>@rickbacci_175
-    %p.small Description
-    %p.small Home
+-if current_user
+  .row.user-profile
+    .col-md-12.profile
+      .panel.panel-default
+        .panel-body
+          .row
+            .col-md-2
+              - cache('user-profile-image') do
+                = image_tag current_user.image
+            .col-md-10
+              .row
+                .col-md-4
+                  %span.small
+                    tweets
+                .col-md-4
+                  %span.small
+                    following
+                .col-md-4
+                  %span.small
+                    followers
+              .row
+                .col-md-4
+                  %span.small
+                    - cache('tweets-count') do
+                      = current_user.twitter_client.user.tweets_count
+                .col-md-4
+                  %span.small
+                    - cache('friends-count') do
+                      = current_user.twitter_client.user.friends_count
+                .col-md-4
+                  %span.small
+                    - cache('followers-count') do
+                      = current_user.twitter_client.user.followers_count
+  .row
+    .col-md-3.blue-border
+      %span.small
+        - cache('user-name') do
+          = current_user.name
+          = "@#{current_user.twitter_client.user.screen_name}"
+      %span.small
+        - cache('user-description') do
+          = current_user.twitter_client.user.description
+      %span.small
+        - cache('user-location') do
+          = current_user.twitter_client.user.location
 
-  .col-md-6.main-feed
-    = render 'shared/tweet'
-    = render 'shared/tweet'
-    = render 'shared/tweet'
-    = render 'shared/tweet'
-    = render 'shared/tweet'
+    .col-md-6.main-feed
+      = render 'shared/user_timeline'
 
-  .col-md-3.blue-border
-    %p Who to follow?
+    .col-md-3.blue-border
+      %p Who to follow?

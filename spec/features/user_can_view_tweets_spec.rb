@@ -13,7 +13,7 @@ feature "User" do
       visit root_path
       click_on "Login"
 
-      expect(page).to have_content('Stay one step ahead!')
+      expect(page).to have_content('What\'s happening?')
     end
   end
 end

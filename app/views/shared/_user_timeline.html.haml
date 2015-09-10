@@ -1,6 +1,6 @@
 - if current_user
-  - cache('home_timeline') do
-    - current_user.twitter_client.home_timeline.each do |tweet|
+  - cache('user_timeline') do
+    - current_user.twitter_client.user_timeline.each do |tweet|
       .panel.panel-default
         .panel-body
           .row

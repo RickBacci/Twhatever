@@ -5,7 +5,6 @@ feature "User" do
 
   before do
     OmniAuth.config.mock_auth[:twitter] = nil
-    OmniAuth.config.test_mode = true
     stub_omniauth
   end
 
