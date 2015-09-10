@@ -1,27 +1,26 @@
 - if current_user
-  - cache('user_timeline') do
-    - current_user.twitter_client.user_timeline.each do |tweet|
-      .panel.panel-default
-        .panel-body
-          .row
-            .col-md-2
-              = image_tag tweet.user.profile_image_url.to_s
-            .col-md-10
-              %span
-                = tweet.user.name
-              %span
-                = "@#{tweet.user.screen_name}"
-              %span
-                = tweet_time(tweet.created_at)
-              %p
-                = tweet.text
-          .row
-            .col-md-4
-              %a{:href => "#"}
-                %span.glyphicon.glyphicon-share-alt
-            .col-md-4
-              %a{:href => "#"}
-                %span.glyphicon.glyphicon-retweet
-            .col-md-4
-              %a{:href => "#"}
-                %span.glyphicon.glyphicon-star-empty
+  - current_user.twitter_client.user_timeline.each do |tweet|
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-md-2
+            = image_tag tweet.user.profile_image_url.to_s
+          .col-md-10
+            %span
+              = tweet.user.name
+            %span
+              = "@#{tweet.user.screen_name}"
+            %span
+              = tweet_time(tweet.created_at)
+            %p
+              = tweet.text
+        .row
+          .col-md-4
+            %a{:href => "#"}
+              %span.glyphicon.glyphicon-share-alt
+          .col-md-4
+            %a{:href => "#"}
+              %span.glyphicon.glyphicon-retweet
+          .col-md-4
+            %a{:href => "#"}
+              %span.glyphicon.glyphicon-star-empty

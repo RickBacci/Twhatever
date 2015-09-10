@@ -12,7 +12,7 @@ feature "User" do
     VCR.use_cassette("visit_profile") do
       visit root_path
       click_on "Login"
-      click_on "Profile"
+      find(".nav-pic").click
 
       expect(page).to have_content('Home')
     end

@@ -5,8 +5,7 @@
         .panel-body
           .row
             .col-md-2
-              - cache('user-profile-image') do
-                = image_tag current_user.image
+              = image_tag current_user.image
             .col-md-10
               .row
                 .col-md-4
@@ -21,28 +20,22 @@
               .row
                 .col-md-4
                   %span.small
-                    - cache('tweets-count') do
-                      = current_user.twitter_client.user.tweets_count
+                    = current_user.twitter_client.user.tweets_count
                 .col-md-4
                   %span.small
-                    - cache('friends-count') do
-                      = current_user.twitter_client.user.friends_count
+                    = current_user.twitter_client.user.friends_count
                 .col-md-4
                   %span.small
-                    - cache('followers-count') do
-                      = current_user.twitter_client.user.followers_count
+                    = current_user.twitter_client.user.followers_count
   .row
     .col-md-3.blue-border
       %span.small
-        - cache('user-name') do
-          = current_user.name
-          = "@#{current_user.twitter_client.user.screen_name}"
+        = current_user.name
+        = "@#{current_user.twitter_client.user.screen_name}"
       %span.small
-        - cache('user-description') do
-          = current_user.twitter_client.user.description
+        = current_user.twitter_client.user.description
       %span.small
-        - cache('user-location') do
-          = current_user.twitter_client.user.location
+        = current_user.twitter_client.user.location
 
     .col-md-6.main-feed
       = render 'shared/user_timeline'

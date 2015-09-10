@@ -5,13 +5,11 @@
         .panel-body
           .row
             .col-md-2
-              - cache('user-image') do
-                = image_tag current_user.image
+              = image_tag current_user.image
             .col-md-10
               %p.small
-                - cache('user-name') do
-                  = current_user.name
-                  = "@#{current_user.twitter_client.user.screen_name}"
+                = current_user.name
+                = "@#{current_user.twitter_client.user.screen_name}"
           .row
             .col-md-4
               %span.small
@@ -25,16 +23,13 @@
           .row
             .col-md-4
               %span.small
-                - cache('tweets-count') do
-                  = current_user.twitter_client.user.tweets_count
+                = current_user.twitter_client.user.tweets_count
             .col-md-4
               %span.small
-                - cache('friends-count') do
-                  = current_user.twitter_client.user.friends_count
+                = current_user.twitter_client.user.friends_count
             .col-md-4
               %span.small
-                - cache('followers-count') do
-                  = current_user.twitter_client.user.followers_count
+                = current_user.twitter_client.user.followers_count
     .col-md-6.main-feed
       = render 'shared/tweet_form'
       = render 'shared/tweet'
