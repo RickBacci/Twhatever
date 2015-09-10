@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get '/auth/twitter/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get '/users/:id', as: :user, to: 'users#show'
+
+  post '/tweet', to: 'users#tweet'
 end

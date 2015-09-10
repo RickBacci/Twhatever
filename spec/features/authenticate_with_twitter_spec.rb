@@ -16,7 +16,6 @@ feature "User" do
 
       click_on "Login"
 
-
       expect(page).to have_link('Logout')
     end
   end
