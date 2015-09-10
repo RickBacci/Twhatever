@@ -11,9 +11,11 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # gem 'therubyracer', platforms: :ruby
 
-gem "twitter-bootstrap-rails"
 gem 'haml-rails'
 gem 'jquery-rails'
+
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -21,6 +23,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'puma'
 gem 'omniauth-twitter'
+gem 'twitter'
 
 group :development, :test do
   gem 'byebug'

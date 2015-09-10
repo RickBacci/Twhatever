@@ -8,13 +8,12 @@ feature "User" do
     stub_omniauth
   end
 
-  scenario "can visit profile page" do
-    VCR.use_cassette("visit_profile") do
+  scenario "can see a list of recent tweets from their feed" do
+    VCR.use_cassette("view_tweets") do
       visit root_path
       click_on "Login"
-      click_on "Profile"
 
-      expect(page).to have_content('Home')
+      expect(page).to have_content('Stay one step ahead!')
     end
   end
 end
