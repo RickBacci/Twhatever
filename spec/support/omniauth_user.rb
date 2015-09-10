@@ -15,7 +15,8 @@ module OmniAuthUser
           description: "Description",
         },
         credentials: {
-          token: ENV['test_token']
+          token: ENV['test_token'],
+          secret: ENV['test_secret']
         }
       })
   end
