@@ -9,17 +9,18 @@ feature "User" do
   end
 
   scenario "can logout of Twitter" do
+    VCR.use_cassette("logout") do
+      visit root_path
 
-    visit root_path
+      expect(page).to_not have_link('Logout')
 
-    expect(page).to_not have_link('Logout')
+      click_on "Login"
 
-    click_on "Login"
+      expect(page).to have_link('Logout')
 
-    expect(page).to have_link('Logout')
+      click_link "Logout"
 
-    click_link "Logout"
-
-    expect(page).to have_link('Login')
+      expect(page).to have_link('Login')
+    end
   end
 end
