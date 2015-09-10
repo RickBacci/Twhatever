@@ -12,7 +12,7 @@
               %span
                 = "@#{tweet.user.screen_name}"
               %span
-                = tweet.created_at
+                = tweet_time(tweet.created_at)
               %p
                 = tweet.text
           .row
