@@ -22,5 +22,6 @@
             %a{:href => "#"}
               %span.glyphicon.glyphicon-retweet
           .col-md-4
-            %a{:href => "#"}
-              %span.glyphicon.glyphicon-star-empty
+            = button_to "Favorite", {:controller => "users", :action => "favorite", :favorite => tweet.id }
+            -# %a{:href => "/favorite", favorite: tweet.id, method: :post }
+            -#   %span.glyphicon.glyphicon-star-empty

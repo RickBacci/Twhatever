@@ -28,4 +28,9 @@ class User < ActiveRecord::Base
     end
     client
   end
+
+
+  def favorite_tweet(id)
+    twitter_client.favorite(id)
+  end
 end
