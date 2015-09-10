@@ -1,20 +1,27 @@
-.panel.panel-default
-  .panel-body
-    .row
-      .col-md-2
-        =image_tag 'http://lorempixel.com/50/50/cats/'
-      .col-md-10
-        %span
-          name
-        %span
-          @twitter_handle
-        %span
-          1hr
-        %p This is my cool tweet! It can take <br> multiple lines
-    .row
-      .col-md-2
-        = button_to "Reply", class: 'pull-left'
-      .col-md-2
-        = button_to "retweet", class: 'pull-left'
-      .col-md-2
-        = button_to "Favorite"
+- if current_user
+  - cache do
+    - current_user.twitter_client.home_timeline.each do |tweet|
+      .panel.panel-default
+        .panel-body
+          .row
+            .col-md-2
+              = image_tag tweet.user.profile_image_url.to_s
+            .col-md-10
+              %span
+                = tweet.user.name
+              %span
+                = "@#{tweet.user.screen_name}"
+              %span
+                = tweet.created_at
+              %p
+                = tweet.text
+          .row
+            .col-md-4
+              %a{:href => "#"}
+                %span.glyphicon.glyphicon-share-alt
+            .col-md-4
+              %a{:href => "#"}
+                %span.glyphicon.glyphicon-retweet
+            .col-md-4
+              %a{:href => "#"}
+                %span.glyphicon.glyphicon-star-empty
