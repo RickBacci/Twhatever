@@ -1,7 +1,7 @@
 .panel.panel-default
   .panel-body
     =form_tag tweet_path, class: "form", method: :post do
-      =text_area_tag :tweet, nil, rows: 3, class: "tweet", placeholder: "What's happening?"
+      =text_area_tag :tweet, nil, rows: 3, cols: 79, placeholder: "What's happening?"
       .clearfix
       %button.btn.pull-right.btn-default.tweet-btn{:type => "submit"} Tweet
 
