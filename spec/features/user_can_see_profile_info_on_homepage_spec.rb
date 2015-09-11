@@ -13,8 +13,8 @@ feature "User" do
       visit root_path
       click_on "Login"
 
-      expect(page).to have_content('Rick Bacci')
-      expect(page).to have_content('@RickBacci_175')
+      expect(page).to have_content('JOE SMOE')
+      expect(page).to have_content('me')
       expect(page).to have_content('tweets')
       expect(page).to have_content('following')
       expect(page).to have_content('followers')
