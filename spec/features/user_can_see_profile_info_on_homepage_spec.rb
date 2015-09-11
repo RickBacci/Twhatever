@@ -14,7 +14,7 @@ feature "User" do
       click_on "Login"
 
       expect(page).to have_content('Rick Bacci')
-      expect(page).to have_content('@rickbacci_175')
+      expect(page).to have_content('@RickBacci_175')
       expect(page).to have_content('tweets')
       expect(page).to have_content('following')
       expect(page).to have_content('followers')
