@@ -14,6 +14,12 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def unfavorite
+    client.unfavorite(params[:unfavorite])
+    flash[:success] = "Tweet unfavorited!"
+    redirect_to root_path
+  end
+
   def tweet_reply
     client.update(params[:tweet_reply], in_reply_to_status_id: params[:tweet_id])
   end

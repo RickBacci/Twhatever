@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   post '/tweet', to: 'users#tweet'
   post '/favorite/:favorite', to: 'users#favorite'
+  post '/unfavorite/:unfavorite', to: 'users#unfavorite'
   post '/reply/:tweet_reply/:tweet_id', to: 'users#tweet_reply'
 end

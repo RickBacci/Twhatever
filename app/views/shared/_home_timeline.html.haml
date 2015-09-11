@@ -16,16 +16,18 @@
               = tweet.text
         .row
           .col-md-4
-            -# = link_to "/reply/#{:reply}/#{tweet.id}", method: :post do
-            -#   %span.glyphicon.glyphicon-share-alt
             %button.btn.btn-primary{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-target" => "#collapseExample", "data-toggle" => "collapse", :type => "button"}
               %span.glyphicon.glyphicon-share-alt
             #collapseExample.collapse
               .well
-                -# = render 'shared/tweet_form'
           .col-md-4
             %a{:href => "#"}
               %span.glyphicon.glyphicon-retweet
           .col-md-4
-            = link_to "/favorite/#{tweet.id}", method: :post do
-              %span.glyphicon.glyphicon-star-empty
+            - if tweet.favorited?
+              = link_to "/unfavorite/#{tweet.id}", method: :post, class: "unfav-tweet tweet-#{tweet.id}" do
+                %span.glyphicon.glyphicon-star
+            - else
+              = link_to "/favorite/#{tweet.id}", method: :post, class: "fav-tweet tweet-#{tweet.id}" do
+                %span.glyphicon.glyphicon-star-empty
+
