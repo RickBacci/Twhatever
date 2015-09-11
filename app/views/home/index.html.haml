@@ -7,9 +7,11 @@
             .col-md-2
               = image_tag current_user.image
             .col-md-10
-              %p.small
+              .text-right
                 = current_user.name
-                = user_screen_name
+                %br
+                = current_user.nickname
+                %br
           = render 'shared/counts'
     .col-md-6.main-feed
       = render 'shared/tweet_form'
