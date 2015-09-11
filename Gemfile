@@ -24,6 +24,7 @@ gem 'figaro'
 gem 'puma'
 gem 'omniauth-twitter'
 gem 'twitter'
+gem 'dalli'
 
 group :development, :test do
   gem 'byebug'
