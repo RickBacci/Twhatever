@@ -3,12 +3,22 @@ class UsersController < ApplicationController
   end
 
   def tweet
-    current_user.twitter_client.update(params[:tweet])
+    client.update(params[:tweet])
     redirect_to root_path
   end
 
   def favorite
-    current_user.twitter_client.favorite(params[:favorite])
+    client.favorite(params[:favorite])
     redirect_to root_path
+  end
+
+  def tweet_reply
+    client.update(params[:tweet_reply], in_reply_to_status_id: params[:tweet_id])
+  end
+
+  private
+
+  def client
+    current_user.twitter_client
   end
 end

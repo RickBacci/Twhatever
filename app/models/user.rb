@@ -26,11 +26,5 @@ class User < ActiveRecord::Base
       config.access_token        = token
       config.access_token_secret = secret
     end
-    client
-  end
-
-
-  def favorite_tweet(id)
-    twitter_client.favorite(id)
   end
 end
