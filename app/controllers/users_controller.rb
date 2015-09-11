@@ -4,11 +4,13 @@ class UsersController < ApplicationController
 
   def tweet
     client.update(params[:tweet])
+    flash[:success] = "Tweet sent!"
     redirect_to root_path
   end
 
   def favorite
     client.favorite(params[:favorite])
+    flash[:success] = "Tweet favorited!"
     redirect_to root_path
   end
 

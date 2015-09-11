@@ -5,15 +5,17 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
+      flash[:success] = "You have successfully logged in!"
       redirect_to root_path
     else
-      raise "Unable to login with Twitter"
+      flash[:danger] = "Unable to authenticate you!"
       redirect_to root_path
     end
   end
 
   def destroy
     session[:user_id] = nil
+    flash[:success] = "You have successfully logged out!"
     redirect_to root_path
   end
 
