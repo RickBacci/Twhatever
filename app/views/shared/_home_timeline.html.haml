@@ -16,10 +16,12 @@
               = tweet.text
         .row
           .col-md-4
-            %button.btn.btn-primary{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-target" => "#collapseExample", "data-toggle" => "collapse", :type => "button"}
+            %button.btn.btn-primary{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-target" => "#collapseExample#{tweet.id}", "data-toggle" => "collapse", :type => "button"}
               %span.glyphicon.glyphicon-share-alt
-            #collapseExample.collapse
+            %div(id="collapseExample#{tweet.id}"
+                     class="collapse")
               .well
+                Hello World
           .col-md-4
             %a{:href => "#"}
               %span.glyphicon.glyphicon-retweet
