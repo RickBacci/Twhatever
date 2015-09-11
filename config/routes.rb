@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get '/users/:id', as: :user, to: 'users#show'
 
   post '/tweet', to: 'users#tweet'
-  post '/favorite', to: 'users#favorite'
+  post '/favorite/:favorite', to: 'users#favorite'
+  post '/reply/:tweet_reply/:tweet_id', to: 'users#tweet_reply'
 end
