@@ -16,8 +16,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background-color: #A0D3F5;
+}
 
+.all-content, .user-profile {
+  height: 100%;
+  padding-top: 20px;
+}
 .nav-pic {
-  width: 50%;
-  height: 50%;
+  width: 24px;
+  height: 24px;
+}
+
+.tweet-btn {
+  margin-top: 10px;
 }

@@ -1,5 +1,5 @@
 - if current_user
-  - current_user.twitter_client.home_timeline.each do |tweet|
+  - home_timeline.each do |tweet|
     .panel.panel-default
       .panel-body
         .row
@@ -16,12 +16,16 @@
               = tweet.text
         .row
           .col-md-4
-            %a{:href => "#"}
+            -# = link_to "/reply/#{:reply}/#{tweet.id}", method: :post do
+            -#   %span.glyphicon.glyphicon-share-alt
+            %button.btn.btn-primary{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-target" => "#collapseExample", "data-toggle" => "collapse", :type => "button"}
               %span.glyphicon.glyphicon-share-alt
+            #collapseExample.collapse
+              .well
+                -# = render 'shared/tweet_form'
           .col-md-4
             %a{:href => "#"}
               %span.glyphicon.glyphicon-retweet
           .col-md-4
-            = button_to "Favorite", {:controller => "users", :action => "favorite", :favorite => tweet.id }
-            -# %a{:href => "/favorite", favorite: tweet.id, method: :post }
-            -#   %span.glyphicon.glyphicon-star-empty
+            = link_to "/favorite/#{tweet.id}", method: :post do
+              %span.glyphicon.glyphicon-star-empty
