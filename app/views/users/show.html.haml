@@ -12,14 +12,15 @@
         .col-md-3.user-profile
           %span.small
             = current_user.name
+            %br
             = user_screen_name
+            %br
           %span.small
             = user_description
+            %br
           %span.small
             = user_location
 
         .col-md-6.main-feed
           = render 'shared/user_timeline'
-
         .col-md-3.user-profile
-          %p Who to follow?
